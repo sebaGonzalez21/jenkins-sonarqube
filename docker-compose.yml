@@ -1,0 +1,24 @@
+version: '2'
+services:
+  jenkins:
+    image: seba21/jenkins
+    ports:
+      - "9090:8080"
+      - "50000:50000"
+    hostname: jenkins.local.cl
+    restart: always
+    volumes:
+      - /c/Users/seba_/volumen/jenkins/config:/var/jenkins_home
+  sonarqube:
+    image: seba21/sonarqube
+    ports:
+      - "9000:9000"
+      - "9092:9092"
+    hostname: sonarqube.local.cl
+    restart: always
+    volumes:
+      - /c/Users/seba_/volumen/sonarqube/conf:/opt/sonarqube/conf
+      - /c/Users/seba_/volumen/sonarqube/data:/opt/sonarqube/data
+      - /c/Users/seba_/volumen/sonarqube/extensions:/opt/sonarqube/extensions
+      - /c/Users/seba_/volumen/sonarqube/lib:/opt/sonarqube/lib/bundled-plugins
+      - /c/Users/seba_/volumen/sonarqube/temp:/opt/sonarqube/temp
